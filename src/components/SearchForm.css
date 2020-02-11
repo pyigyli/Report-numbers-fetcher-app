@@ -1,0 +1,9 @@
+.SearchForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0.5rem;
+}
+.DatePicker {
+  margin: 0.5rem;
+}
