@@ -16,11 +16,13 @@ export const reducer = (state: State = initState, action: Actions) => {
     case AppEvents.FETCH_DATA:
       const {startDate, endDate, token} = action.payload
       const data = fetchChatData(startDate, endDate, token)
-      return {...state, data, isFetchingChatData: true}
+      return {...state, data}
 
     case AppEvents.RECEIVE_DATA:
       return {...state, data: action.payload}
   
+    case AppEvents.FETCH_ERROR:
+      return {...state, data: null}
     default:
       return state
   }

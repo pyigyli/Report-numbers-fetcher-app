@@ -9,6 +9,7 @@ button {
   padding-bottom: 0.4rem;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
+  border-radius: 0px;
   border-color: #bbbbbb;
   border-width: 1px;
   border-left-width: 0px;

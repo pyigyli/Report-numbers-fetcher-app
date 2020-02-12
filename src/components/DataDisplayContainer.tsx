@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { AppState } from '../store/store'
-import { Actions, receiveChatData } from '../store/actions'
+import { Actions, receiveChatData, receiveChatError } from '../store/actions'
 import { Dispatch } from 'redux'
 import ValueDisplayBox from './ValueDisplayBox'
 import './DataDisplayContainer.css'
@@ -10,21 +10,28 @@ import DataTable from './DataTable'
 interface Props {
   data: ChatData | Promise<ChatData> | null
   receiveData: (data: ChatData) => Actions
+  receiveError: () => Actions
 }
 
-const DataDisplayContainer: React.FunctionComponent<Props> = ({data, receiveData}) => {
+const DataDisplayContainer: React.FunctionComponent<Props> = ({data, receiveData, receiveError}) => {
+  const [errorMessage, setErrorMessage] = useState('No data to show, please do a search')
 
-  // useEffect to resolve promises as soon as they're done
+  // useEffect to resolve promises
   useEffect(() => {
     if (data instanceof Promise) {
-      data.then((chatData: ChatData) => {
-        receiveData(chatData)
-      })
+      data
+        .then((chatData: ChatData) => {
+          receiveData(chatData)
+        })
+        .catch(() => {
+          setErrorMessage('Unable to fetch data, please check your token')
+          receiveError()
+        })
     }
-  }, [data, receiveData])
+  }, [data, receiveData, receiveError])
 
   if (!data) {
-    return <div className='Text'>No data to show, please do a search</div>
+    return <div className='Text'>{errorMessage}</div>
   }
 
   if (data instanceof Promise) {
@@ -58,7 +65,8 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<Actions>) => {
   return {
-    receiveData: (data: ChatData) => dispatch(receiveChatData(data))
+    receiveData: (data: ChatData) => dispatch(receiveChatData(data)),
+    receiveError: () => dispatch(receiveChatError())
   }
 }
 
