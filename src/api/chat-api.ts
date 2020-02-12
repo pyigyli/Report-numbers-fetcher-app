@@ -19,6 +19,7 @@ export const fetchChatData = async (startDate: Date, endDate: Date, token: strin
     totalUserMessageCount: json.total_user_message_count,
     totalVisitorMessageCount: json.total_visitor_message_count,
     byDate: json.by_date.map((date: any) => ({
+      date: new Date(date.date),
       conversationCount: date.conversation_count,
       missedChatCount: date.missed_chat_count,
       visitorsWithConversationCount: date.visitors_with_conversation_count

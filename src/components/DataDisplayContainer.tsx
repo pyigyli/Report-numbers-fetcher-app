@@ -5,6 +5,7 @@ import { Actions, receiveChatData } from '../store/actions'
 import { Dispatch } from 'redux'
 import ValueDisplayBox from './ValueDisplayBox'
 import './DataDisplayContainer.css'
+import DataTable from './DataTable'
 
 interface Props {
   data: ChatData | Promise<ChatData> | null
@@ -23,27 +24,30 @@ const DataDisplayContainer: React.FunctionComponent<Props> = ({data, receiveData
   }, [data, receiveData])
 
   if (!data) {
-    return <div>No data to show, please do a search</div>
+    return <div className='Text'>No data to show, please do a search</div>
   }
 
   if (data instanceof Promise) {
-    return <div>loading...</div>
+    return <div className='Text'>loading...</div>
   }
   
   return (
-    <div className='DataDisplayContainer'>
-      <ValueDisplayBox
-        label='Total conversation count'
-        value={data.totalConversationCount}
-      />
-      <ValueDisplayBox
-        label='Total user message count'
-        value={data.totalUserMessageCount}
-      />
-      <ValueDisplayBox
-        label='Total visitor message count'
-        value={data.totalVisitorMessageCount}
-      />
+    <div>
+      <div className='DataDisplayContainer'>
+        <ValueDisplayBox
+          label='Total conversation count'
+          value={data.totalConversationCount}
+        />
+        <ValueDisplayBox
+          label='Total user message count'
+          value={data.totalUserMessageCount}
+        />
+        <ValueDisplayBox
+          label='Total visitor message count'
+          value={data.totalVisitorMessageCount}
+        />
+      </div>
+      <DataTable data={data.byDate}/>
     </div>
   )
 }

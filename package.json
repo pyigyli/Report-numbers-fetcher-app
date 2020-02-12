@@ -1,5 +1,5 @@
 {
-  "name": "reports-numbers-fetcher",
+  "name": "report-numbers-fetcher",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

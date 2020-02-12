@@ -18,6 +18,9 @@ const SearchForm: React.FunctionComponent<Props> = ({fetchData}) => {
   const submitFetch = async (e: any) => {
     e.preventDefault()
     fetchData(startDate, endDate, token)
+    localStorage.setItem('report-numbers-fetcher-startDate', startDate.toString())
+    localStorage.setItem('report-numbers-fetcher-endDate', endDate.toString())
+    localStorage.setItem('report-numbers-fetcher-token', token)
   }
 
   return (

@@ -11,7 +11,7 @@ const makeAction = <T extends AppEvents, P>(type: T) => (payload: P) => {
 export const fetchChatData = makeAction<AppEvents.FETCH_DATA, ChatFetchParameters>(AppEvents.FETCH_DATA)
 export const receiveChatData = makeAction<AppEvents.RECEIVE_DATA, ChatData>(AppEvents.RECEIVE_DATA)
 
-// Provides convinience and type safety by letting the compiler keep track of every type our actions have
+// Provides convinience and type safety by letting the compiler keep track of all types the actions have
 interface ActionMap<T> {
   [key: string]: T
 }

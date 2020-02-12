@@ -1,0 +1,26 @@
+.PageSelectorWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+button {
+  background-color: white;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  border-color: #bbbbbb;
+  border-width: 1px;
+  border-left-width: 0px;
+  border-style: solid;
+  cursor: pointer;
+}
+.LeftButton {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-left-width: 1px;
+}
+.RightButton {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}

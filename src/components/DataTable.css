@@ -1,0 +1,40 @@
+.TableContainer {
+  height: 21rem;
+}
+table {
+  width: 68rem;
+  margin: 1rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+tr {
+  height: 3rem;
+  border-color: #cccccc;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+thead tr {
+  background-color: #f7f7f7;
+}
+
+th, td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+.AlignLeft {
+  text-align: left;
+}
+.DateWrapper {
+  width: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.YearLabel {
+  color: #cccccc
+}
