@@ -3,27 +3,17 @@ import './App.css'
 import Header from './Header'
 import SearchForm from './SearchForm'
 import DataDisplayContainer from './DataDisplayContainer'
-import { AppState } from '../store/store'
-import { connect } from 'react-redux'
 
-interface Props {
-  data: ChatData | Promise<ChatData>,
-}
-
-const App: React.FunctionComponent<Props> = () => {
+const App: React.FunctionComponent = () => {
   return (
-    <div className='App'>
+    <div>
       <Header/>
-      <SearchForm/>
-      <DataDisplayContainer/>
+      <div className='AppBody'>
+        <SearchForm/>
+        <DataDisplayContainer/>
+      </div>
     </div>
   )
 }
 
-export const mapStateToProps = (state: AppState) => {
-  return {
-    data: state.app.data
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default App

@@ -3,20 +3,11 @@ import { Actions } from "./actions"
 import { fetchChatData } from "../api/chats-api"
 
 interface State {
-  data: ChatData | Promise<ChatData>
+  data: ChatData | Promise<ChatData> | null // Three different types to indicate 'data', 'loading data' and 'no data'
 }
 
 const initState: State = {
-  data: {
-    totalConversationCount: 0,
-    totalUserMessageCount: 0,
-    totalVisitorMessageCount: 0,
-    byDate: {
-      conversationCount: 0,
-      missedChatCount: 0,
-      visitorsWithConversationCount: 0
-    }
-  }
+  data: null
 }
 
 export const reducer = (state: State = initState, action: Actions) => {

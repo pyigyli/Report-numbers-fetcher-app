@@ -25,30 +25,42 @@ const SearchForm: React.FunctionComponent<Props> = ({fetchData}) => {
       className='SearchForm'
       onSubmit={submitFetch}
     >
-      <DatePicker
-        className='DatePicker'
-        selected={startDate}
-        onChange={(date: Date) => setStartDate(date)}
-        minDate={new Date('2017-05-01')} // Limit range to available demo data
-        maxDate={endDate}
-      />
-      <DatePicker
-        className='DatePicker'
-        selected={endDate}
-        onChange={(date: Date) => setEndDate(date)}
-        minDate={startDate}
-        maxDate={new Date('2017-06-15')} // Limit range to available demo data
-      />
-      <input
-        type='text'
-        value={token}
-        onChange={({target}) => setToken(target.value)}
-        placeholder='access token'
-      />
-      <input
-        type='submit'
-        value='Search'
-      />
+      <div className='DateInputsWrapper'>
+        <div className='DateInputContainer'>
+          <div className='DateLabel'>Start date</div>
+          <DatePicker
+            className='DateInput'
+            selected={startDate}
+            onChange={(date: Date) => setStartDate(date)}
+            minDate={new Date('2017-05-01')} // Limit range to available demo data
+            maxDate={endDate}
+          />
+        </div>
+        <div className='DateInputContainer'>
+          <div className='DateLabel'>End date</div>
+          <DatePicker
+            className='DateInput'
+            selected={endDate}
+            onChange={(date: Date) => setEndDate(date)}
+            minDate={startDate}
+            maxDate={new Date('2017-06-15')} // Limit range to available demo data
+          />
+        </div>
+      </div>
+      <div className='TokenSubmitWrapper'>
+        <input
+          className='SubmitButton'
+          type='submit'
+          value='Search'
+        />
+        <input
+          className='TokenInput'
+          type='text'
+          value={token}
+          onChange={({target}) => setToken(target.value)}
+          placeholder='access token'
+        />
+      </div>
     </form>
   )
 }

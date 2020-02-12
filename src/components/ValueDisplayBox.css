@@ -1,0 +1,23 @@
+.Container {
+  width: 21rem;
+  height: 11rem;
+  padding-top: 3rem;
+  padding-bottom: 5.5rem;
+  border-radius: 0.5rem;
+  border-color: #bbbbbb;
+  border-width: 1px;
+  border-style: solid;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.Value {
+  font-size: 4rem;
+  align-self: center;
+}
+.Label {
+  font-size: 1.6rem;
+  font-weight: 600;
+  align-self: center;
+}

@@ -1,9 +1,50 @@
 .SearchForm {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin: 0.5rem;
 }
-.DatePicker {
-  margin: 0.5rem;
+.DateInputsWrapper {
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.DateInputContainer {
+  height: 4rem;
+}
+.DateLabel {
+  height: 1.5rem;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+.DateInput {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border-color: #bbbbbb;
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.TokenSubmitWrapper {
+  margin-top: 1.5rem;
+}
+.SubmitButton {
+  padding: 0.8rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-color: #bbbbbb;
+  border-width: 1px;
+  border-style: solid;
+}
+.TokenInput {
+  width: 20rem;
+  padding: 0.8rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border-color: #bbbbbb;
+  border-width: 1px;
+  border-left-width: 0px;
+  border-style: solid;
 }

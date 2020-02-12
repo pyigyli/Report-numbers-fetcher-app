@@ -1,7 +1,7 @@
 import React from 'react'
 import './Header.css'
 
-const Header = () => {
+const Header: React.FunctionComponent = () => {
   return (
     <div className='Header'>
       Awesome react app
