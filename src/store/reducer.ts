@@ -1,6 +1,6 @@
 import { AppEvents } from "./events"
 import { Actions } from "./actions"
-import { fetchChatData } from "../api/chat-api"
+import { fetchChatData } from "../api/chatApi"
 
 interface State {
   data: ChatData | Promise<ChatData> | null // Three different types to indicate 'data', 'loading data' and 'no data'

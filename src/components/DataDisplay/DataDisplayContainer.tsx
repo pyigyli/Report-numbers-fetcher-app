@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { AppState } from '../store/store'
-import { Actions, receiveChatData, receiveChatError } from '../store/actions'
+import { AppState } from '../../store/store'
+import { Actions, receiveChatData, receiveChatError } from '../../store/actions'
 import { Dispatch } from 'redux'
 import ValueDisplayBox from './ValueDisplayBox'
 import './DataDisplayContainer.css'
 import DataTable from './DataTable'
+import { clearCookies } from '../../api/localStorage'
+import Tabs from './Tabs'
+import DailyDataChart from './DailyDataChart'
 
 interface Props {
   data: ChatData | Promise<ChatData> | null
@@ -15,6 +18,7 @@ interface Props {
 
 const DataDisplayContainer: React.FunctionComponent<Props> = ({data, receiveData, receiveError}) => {
   const [errorMessage, setErrorMessage] = useState('No data to show, please do a search')
+  const [tab, setTab] = useState(0)
 
   // useEffect to resolve promises
   useEffect(() => {
@@ -26,6 +30,7 @@ const DataDisplayContainer: React.FunctionComponent<Props> = ({data, receiveData
         .catch(() => {
           setErrorMessage('Unable to fetch data, please check your token')
           receiveError()
+          clearCookies() // No need to store cookies for incorrect token
         })
     }
   }, [data, receiveData, receiveError])
@@ -54,7 +59,12 @@ const DataDisplayContainer: React.FunctionComponent<Props> = ({data, receiveData
           value={data.totalVisitorMessageCount}
         />
       </div>
-      <DataTable data={data.byDate}/>
+      <Tabs
+        tabs={['Table', 'Chart']}
+        current={tab}
+        onChange={setTab}
+      />
+      {tab === 0 ? <DataTable data={data.byDate}/> : <DailyDataChart data={data.byDate}/>}
     </div>
   )
 }

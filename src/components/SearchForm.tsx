@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import './SearchForm.css'
 import { Actions, fetchChatData } from '../store/actions'
 import { connect } from 'react-redux'
+import { setCookies } from '../api/localStorage'
 
 interface Props {
   fetchData: (startDate: Date, endDate: Date, token: string) => Actions
@@ -18,9 +19,11 @@ const SearchForm: React.FunctionComponent<Props> = ({fetchData}) => {
   const submitFetch = async (e: any) => {
     e.preventDefault()
     fetchData(startDate, endDate, token)
-    localStorage.setItem('report-numbers-fetcher-startDate', startDate.toString())
-    localStorage.setItem('report-numbers-fetcher-endDate', endDate.toString())
-    localStorage.setItem('report-numbers-fetcher-token', token)
+    setCookies(
+      {key: 'report-numbers-fetcher-startDate', value: startDate.toString()},
+      {key: 'report-numbers-fetcher-endDate', value: endDate.toString()},
+      {key: 'report-numbers-fetcher-token', value: token}
+    )
   }
 
   return (

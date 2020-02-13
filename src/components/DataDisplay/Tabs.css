@@ -1,0 +1,36 @@
+.TabsUnderline {
+  width: 30rem;
+  border-bottom-width: 1px;
+  border-bottom-color: #3388ee;
+  border-bottom-style: solid;
+}
+.Tabs {
+  width: 70rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.OpenTab, .ClosedTab {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-width: 1px;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  color: #3388ee;
+  border-color: #3388ee;
+  border-style: solid;
+}
+div:nth-child(2) {
+  border-left-width: 1px;
+}
+.OpenTab {
+  background-color: #3388ee44;
+}
+.ClosedTab {
+  background-color: white;
+  cursor: pointer;
+}

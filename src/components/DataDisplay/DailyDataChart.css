@@ -1,0 +1,28 @@
+.ChartWrapper {
+  width: 70rem;
+  height: 22rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.ChartContainer {
+  width: 68rem;
+}
+.ColorLabelsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.ColorLabelContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem;
+}
+.ColorLabelRect {
+  width: 1rem;
+  height: 1rem;
+  border-width: 1px;
+  border-style: solid;
+  margin: 0.1rem;
+}

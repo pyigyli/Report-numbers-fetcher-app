@@ -17,3 +17,5 @@ interface ChatFetchParameters {
   endDate: Date,
   token: string
 }
+
+declare module 'react-charts'
