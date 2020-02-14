@@ -30,7 +30,7 @@ const DailyDataChart: React.FunctionComponent<Props> = ({data}) => {
   const axes = React.useMemo(() => [
     {primary: true, type: 'time', position: 'bottom', maxTickCount: data.length},
     {type: 'linear', position: 'left'}
-  ], [])
+  ], [data])
  
   return (
     <div>

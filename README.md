@@ -10,4 +10,8 @@ git clone https://github.com/pyigyli/Report-numbers-fetcher-app.git
 cd .\Report-numbers-fetcher-app
 yarn start
 ```
-or build the application with command ```yarn build```.
+The app will start running on http://localhost:3000/.
+
+You can create an optimized producion build of the application with command ```yarn build```.
+
+You can run cypress test runner with command ```yarn test``` and run all implemented integration tests on it.

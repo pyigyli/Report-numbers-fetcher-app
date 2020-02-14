@@ -19,3 +19,4 @@ interface ChatFetchParameters {
 }
 
 declare module 'react-charts'
+declare module '@cypress/webpack-preprocessor'
