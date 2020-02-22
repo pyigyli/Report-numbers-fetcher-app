@@ -1,11 +1,8 @@
 import React from 'react'
 import './Header.css'
+import { clearCookies } from '../api/localStorage'
 
 const Header: React.FunctionComponent = () => {
-
-  const clearCookies = () => {
-    localStorage.clear()
-  }
 
   return (
     <div className='Header'>
